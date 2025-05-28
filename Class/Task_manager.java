@@ -10,10 +10,13 @@ public class Task_manager {
     }
 
     public void CreatedTask() { 
-        System.out.println("Title : ");
+        System.out.println("Enter the task title: ");
         String Title = scanner.nextLine();
-
-        System.out.println("Título: " + Title);
+        System.out.println("Enter the task description: ");
+        String Description = scanner.nextLine();
+        Task Task_class = new Task(Title, Description );
+        
+        System.out.println(Task_class);
     }
 
     // os outros métodos também podem usar `scanner`
