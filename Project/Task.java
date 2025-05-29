@@ -1,11 +1,11 @@
-package Class;
+package Project;
 import java.time.LocalDate;
-import java.util.Scanner;
+
 
 public class Task {
     
 
-    private String Title; 
+    private String Title;
     private String Description;
     private LocalDate dateLimit;
     private String priority; // Enum: BAIXA, MEDIA, ALTA
@@ -16,9 +16,14 @@ public class Task {
         this.Title = Title; /* this.Title =  o atributo da classe, e Title = o parâmetro que veio de fora*/
         this.Description = Description;
     }
-    public String toString(){
-        return "Título: " + Title + ", Descrição: " + Description;
+    
+    public String getTitle() {
+        return Title;
     }
+     public String getDescription() {
+        return Title;
+    }
+
 
     
 }
