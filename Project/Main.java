@@ -8,12 +8,14 @@ public class Main {
         Task_manager manager = new Task_manager(scanner); 
        
         boolean returnMenu = false;
-        while (!returnMenu) {
 
+        while (!returnMenu) {
             System.out.println("1 - Created");
-            System.out.println("2 - list task");
-            System.out.println("3 - Exit the system");
+            System.out.println("2 - List task");
+            System.out.println("3 - List by priority");
+            System.out.println("4 - Exit the system");
             System.out.print("Choose one of the options: ");
+
             int options = scanner.nextInt();
             
             switch (options) {
@@ -31,15 +33,22 @@ public class Main {
                     clearScreen();
                     break;
                 case 3:
-                    returnMenu = true;
+                    clearScreen();
+                    manager.listByPriority();
+                    System.out.println("Press enter to return to the menu");
+                    scanner.nextLine();
+                    scanner.nextLine();
+                    clearScreen();
                     break;
+                case 4:
+                    returnMenu = true;
+                    break;     
                 default:
                     System.out.println("Error, please choose a valid option.");
                     System.out.println("Press enter to return to the menu");
                     scanner.nextLine();
                     clearScreen();
                     break;
-            
             }
             
         }
