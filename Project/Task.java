@@ -9,10 +9,10 @@ public class Task {
     private String Description;
     private LocalDate dateLimit;
     private int Priority; // Enum: BAIXA, MEDIA, ALTA
-    private boolean Completed;
+    private String Completed;
 
     /* construtor da class */
-    public Task(String Title, String Description, int Priority, boolean Completed){
+    public Task(String Title, String Description, int Priority, String Completed){
         this.Title = Title; /* this.Title =  o atributo da classe, e Title = o parâmetro que veio de fora*/
         this.Description = Description;
         this.Priority = Priority;
@@ -27,8 +27,8 @@ public class Task {
     public int getPriority() {
         return Priority;
     }
-    public boolean getCompleted() {
-        /* return Completed; */
+    public String getCompleted() {
+        return Completed;
     }
 
 

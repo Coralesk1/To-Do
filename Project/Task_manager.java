@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Task_manager {
 
     Map<Integer, Task> data = new HashMap<>();
-    int id = 1;
+    int Id = 1;
 
     private Scanner scanner;
     public Task_manager(Scanner scanner) {
@@ -27,28 +27,30 @@ public class Task_manager {
         System.out.print("[1] - High\n[2] - Medium\n[3] - Low\nEnter the task priority:");
         int Priority = scanner.nextInt();
 
+        System.out.print("Completed [False/True]: ");
+        String Completed = scanner.nextLine();
 
-        
-        data.put(id++, new Task(Title, Description, Priority)); /* faz um metodo pra marca a tarefa por id e quando for listar as tarefas tem que aparecer as que ja estão completas */
+        data.put(Id++, new Task(Title, Description, Priority, Completed));
         
     }
 
     public void Listtask() { 
-        for (Map.Entry<Integer, Task> entrada : data.entrySet()) { 
-            Task data = entrada.getValue();
+        for (Map.Entry<Integer, Task> Tasks : data.entrySet()) { 
+            Task data = Tasks.getValue();
             System.out.println("+++++++++++++++++++++++++++++++++++++++");
-            System.out.println("Task Id: "+ entrada.getKey());
+            System.out.println("Task Id: "+ Tasks.getKey());
             System.out.println("Title: " + data.getTitle());
             System.out.println("Description: " + data.getDescription());
+            System.out.println("Completed: " + data.getCompleted());
             if(data.getPriority() == 1){
-                    System.out.println("Priority: HIGH");
-                }
-                else if(data.getPriority() == 2){
-                    System.out.println("Priority: MEDIUM");
-                }
-                else if(data.getPriority() == 3){
-                    System.out.println("Priority: LOW");
-                }
+                System.out.println("Priority: HIGH");
+            }
+            else if(data.getPriority() == 2){
+                System.out.println("Priority: MEDIUM");
+            }
+            else if(data.getPriority() == 3){
+                System.out.println("Priority: LOW");
+            }
         }
         
     }
@@ -59,24 +61,38 @@ public class Task_manager {
             .forEach(entry -> {
                 Task data = entry.getValue();
                 System.out.println("+++++++++++++++++++++++++++++++++++++++");
-                if(data.getPriority() == 1){
-                    System.out.println("Priority: HIGH");
-                }
-                else if(data.getPriority() == 2){
-                    System.out.println("Priority: MEDIUM");
-                }
-                else if(data.getPriority() == 3){
-                    System.out.println("Priority: LOW");
-                }
+                PriorityCondition(); /* FAZ FUNCIONAR A FUNÇÃO DA CONDIÇÃO DA PRIORIDADE */
                 System.out.println("Title: " + data.getTitle());
                 System.out.println("Description: " + data.getDescription());
             });
             
 
     }
-    public void ConcludeTask() { 
+    public void CompleteTask() {
         System.out.println("Enter the id of the task you want to complete: ");
-    }
+        int Id = scanner.nextInt();
+
+        if (data.containsKey(Id)) {
+            Task task = data.get(Id);
+            System.out.println("Task Id: " + Id);
+            System.out.println("Title: " + task.getTitle());
+            System.out.println("Description: " + task.getDescription());
+        } else {
+        System.out.println("Erro: tarefa com esse ID não encontrada.");
+        }
+}
+
     public void DeleteTask() { }
     public void ListByStatus() { }
+    public void PriorityCondition(){
+        if(data.getPriority() == 1){
+            System.out.println("Priority: HIGH");
+        }
+        else if(data.getPriority() == 2){
+            System.out.println("Priority: MEDIUM");
+        }
+        else if(data.getPriority() == 3){
+            System.out.println("Priority: LOW");
+        }
+    }
 }

@@ -13,19 +13,23 @@ public class Main {
             System.out.println("1 - Created");
             System.out.println("2 - List task");
             System.out.println("3 - List by priority");
-            System.out.println("4 - Exit the system");
+            System.out.println("4 - Complete Task");
+            System.out.println("5 - Exit the system");
             System.out.print("Choose one of the options: ");
 
             int options = scanner.nextInt();
             
             switch (options) {
                 case 1:
+                    clearScreen();
                     manager.CreatedTask();
+                    scanner.nextLine();
                     System.out.println("Press enter to return to the menu");
                     scanner.nextLine();
                     clearScreen();
                     break;
                 case 2:
+                    clearScreen();
                     manager.Listtask();
                     System.out.println("Press enter to return to the menu");
                     scanner.nextLine();
@@ -40,7 +44,15 @@ public class Main {
                     scanner.nextLine();
                     clearScreen();
                     break;
-                case 4:
+                 case 4:
+                    clearScreen();
+                    manager.CompleteTask();
+                    System.out.println("Press enter to return to the menu");
+                    scanner.nextLine();
+                    scanner.nextLine();
+                    clearScreen();
+                    break;
+                case 5:
                     returnMenu = true;
                     break;     
                 default:
@@ -50,7 +62,6 @@ public class Main {
                     clearScreen();
                     break;
             }
-            
         }
         scanner.close();
     }
