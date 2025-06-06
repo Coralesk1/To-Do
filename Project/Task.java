@@ -24,12 +24,13 @@ public class Task {
     public String getDescription() {
         return Description;
     }
-    public int getPriority() {
-        return Priority;
-    }
     public String getCompleted() {
         return Completed;
     }
+    public int getPriority() {
+        return Priority;
+    }
+   
 
 
     

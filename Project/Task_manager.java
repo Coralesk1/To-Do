@@ -42,15 +42,7 @@ public class Task_manager {
             System.out.println("Title: " + data.getTitle());
             System.out.println("Description: " + data.getDescription());
             System.out.println("Completed: " + data.getCompleted());
-            if(data.getPriority() == 1){
-                System.out.println("Priority: HIGH");
-            }
-            else if(data.getPriority() == 2){
-                System.out.println("Priority: MEDIUM");
-            }
-            else if(data.getPriority() == 3){
-                System.out.println("Priority: LOW");
-            }
+            PriorityCondition(data);
         }
         
     }
@@ -61,7 +53,7 @@ public class Task_manager {
             .forEach(entry -> {
                 Task data = entry.getValue();
                 System.out.println("+++++++++++++++++++++++++++++++++++++++");
-                PriorityCondition(); /* FAZ FUNCIONAR A FUNÇÃO DA CONDIÇÃO DA PRIORIDADE */
+                PriorityCondition(data); /* FAZ FUNCIONAR A FUNÇÃO DA CONDIÇÃO DA PRIORIDADE */
                 System.out.println("Title: " + data.getTitle());
                 System.out.println("Description: " + data.getDescription());
             });
@@ -84,8 +76,9 @@ public class Task_manager {
 
     public void DeleteTask() { }
     public void ListByStatus() { }
-    public void PriorityCondition(){
-        if(data.getPriority() == 1){
+    public void PriorityCondition(Task data){
+        int priority = data.getPriority();
+        if(priority == 1){
             System.out.println("Priority: HIGH");
         }
         else if(data.getPriority() == 2){
