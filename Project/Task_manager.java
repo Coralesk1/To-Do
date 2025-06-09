@@ -26,11 +26,8 @@ public class Task_manager {
 
         System.out.print("[1] - High\n[2] - Medium\n[3] - Low\nEnter the task priority:");
         int Priority = scanner.nextInt();
-
-        System.out.print("Completed [False/True]: ");
-        String Completed = scanner.nextLine();
-
-        data.put(Id++, new Task(Title, Description, Priority, Completed));
+        
+        data.put(Id++, new Task(Title, Description, Priority, false));
         
     }
 
@@ -43,6 +40,7 @@ public class Task_manager {
             System.out.println("Description: " + data.getDescription());
             System.out.println("Completed: " + data.getCompleted());
             PriorityCondition(data);
+            
         }
         
     }
@@ -53,7 +51,7 @@ public class Task_manager {
             .forEach(entry -> {
                 Task data = entry.getValue();
                 System.out.println("+++++++++++++++++++++++++++++++++++++++");
-                PriorityCondition(data); /* FAZ FUNCIONAR A FUNÇÃO DA CONDIÇÃO DA PRIORIDADE */
+                PriorityCondition(data); 
                 System.out.println("Title: " + data.getTitle());
                 System.out.println("Description: " + data.getDescription());
             });
@@ -65,13 +63,24 @@ public class Task_manager {
         int Id = scanner.nextInt();
 
         if (data.containsKey(Id)) {
-            Task task = data.get(Id);
+            Task task = data.get(Id); 
+
             System.out.println("Task Id: " + Id);
             System.out.println("Title: " + task.getTitle());
             System.out.println("Description: " + task.getDescription());
-        } else {
-        System.out.println("Erro: tarefa com esse ID não encontrada.");
+            System.out.println("Completed:" + task.getCompleted());
+
+            System.out.println("Do you want to mark as completed ?");
+            /* TA MARCANDO CERTINHO O TRUE AGORA FAZ UMA PERGUNTA SE A PESSOA QUER MARCAR A TAREFA MESMO  */
+            System.out.println("Tarefa marcada como concluída!");
+           
+            task.setCompleted(true); 
+        } else { 
+        System.out.println("Erro: tarefa com esse ID nao encontrada.");
+        
         }
+        
+
 }
 
     public void DeleteTask() { }
