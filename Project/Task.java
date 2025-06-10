@@ -8,7 +8,7 @@ public class Task {
     private String Title;
     private String Description;
     private LocalDate dateLimit;
-    private int Priority; // Enum: BAIXA, MEDIA, ALTA
+    private int Priority; 
     private Boolean Completed = false;
 
     /* construtor da class */
@@ -19,7 +19,7 @@ public class Task {
         this.Completed = Completed;
     }
     public String getTitle() {
-        return Title; /* ENTENDER MELHOR COMO FUNCIONA ISSO  */
+        return Title; 
     }
     public String getDescription() {
         return Description;
@@ -31,6 +31,9 @@ public class Task {
         return Completed;
     }
     public void setCompleted(boolean completed) {
+        this.Completed = completed;
+    }
+    public void setUnmark(boolean completed){
         this.Completed = completed;
     }
     

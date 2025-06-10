@@ -59,9 +59,10 @@ public class Task_manager {
 
     }
     public void CompleteTask() {
+        
         System.out.println("Enter the id of the task you want to complete: ");
         int Id = scanner.nextInt();
-
+        scanner.nextLine();
         if (data.containsKey(Id)) {
             Task task = data.get(Id); 
 
@@ -70,21 +71,41 @@ public class Task_manager {
             System.out.println("Description: " + task.getDescription());
             System.out.println("Completed:" + task.getCompleted());
 
-            System.out.println("Do you want to mark as completed ?");
-            /* TA MARCANDO CERTINHO O TRUE AGORA FAZ UMA PERGUNTA SE A PESSOA QUER MARCAR A TAREFA MESMO  */
-            System.out.println("Tarefa marcada como concluída!");
-           
-            task.setCompleted(true); 
+            System.out.println("Do you want to mark or unmark a task? [m/u]");
+            String mu = scanner.nextLine();
+            if(mu.equalsIgnoreCase("m")){
+                task.setCompleted(true); 
+                System.out.println("Task marked as completed!");
+            }
+            else if(mu.equalsIgnoreCase("u")){
+                task.setUnmark(false);
+                System.out.println("Unchecked task!");
+            }      
+            else{
+                System.out.println("Invalid!");
+            }
+
         } else { 
         System.out.println("Erro: tarefa com esse ID nao encontrada.");
-        
         }
-        
 
 }
 
-    public void DeleteTask() { }
-    public void ListByStatus() { }
+    public void DeleteTask() { 
+        System.out.println("Enter the id of the task you want to delete: ");
+
+    }
+    public void ListByStatus() { 
+        
+        data.entrySet()
+        .stream()
+        .filter(entry -> entry.getValue())
+
+            
+            
+            
+        
+    }
     public void PriorityCondition(Task data){
         int priority = data.getPriority();
         if(priority == 1){

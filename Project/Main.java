@@ -49,7 +49,6 @@ public class Main {
                     manager.CompleteTask();
                     System.out.println("Press enter to return to the menu");
                     scanner.nextLine();
-                    scanner.nextLine();
                     clearScreen();
                     break;
                 case 5:
