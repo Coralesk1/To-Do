@@ -17,7 +17,7 @@ public class Task_manager {
 
     public void CreatedTask() { 
         
-        scanner.nextLine();
+        
         System.out.print("Enter the task title: ");
         String Title = scanner.nextLine();
         
@@ -95,16 +95,22 @@ public class Task_manager {
         System.out.println("Enter the id of the task you want to delete: ");
 
     }
-    public void ListByStatus() { 
+    public void ListByComplete() { 
         
-        data.entrySet()
-        .stream()
-        .filter(entry -> entry.getValue())
+        for (Map.Entry<Integer, Task> entry : data.entrySet()) {
+            Task task = entry.getValue();
 
-            
-            
-            
-        
+            if (task.getCompleted()) {
+                System.out.println("----------------------------");
+                System.out.println("Id: " + entry.getKey());
+                System.out.println("Title: " + task.getTitle());
+                System.out.println("Description: " + task.getDescription());
+                System.out.println("Completed: "+ task.getCompleted());
+            } /* FAÇA COM QUE PERGUNTE SE QUER LISTAR PELAS COMPLETAS OU NÃO COMPLETAS */
+            else{
+                System.out.println("No tasks were completed");
+            }
+        }
     }
     public void PriorityCondition(Task data){
         int priority = data.getPriority();
