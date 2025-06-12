@@ -42,8 +42,8 @@ public class Task_manager {
             PriorityCondition(data);
             
         }
-        
     }
+
     public void listByPriority() { 
         data.entrySet()
             .stream()
@@ -55,9 +55,8 @@ public class Task_manager {
                 System.out.println("Title: " + data.getTitle());
                 System.out.println("Description: " + data.getDescription());
             });
-            
-
     }
+
     public void CompleteTask() {
         
         System.out.println("Enter the id of the task you want to complete: ");
@@ -86,32 +85,47 @@ public class Task_manager {
             }
 
         } else { 
-        System.out.println("Erro: tarefa com esse ID nao encontrada.");
+        System.out.println("Error: Task with that ID not found.");
         }
-
 }
 
     public void DeleteTask() { 
         System.out.println("Enter the id of the task you want to delete: ");
-
-    }
-    public void ListByComplete() { 
+        int idremove = scanner.nextInt();
+        scanner.nextLine();
         
+        if (data.containsKey(idremove)){
+            data.remove(idremove);
+            System.out.println("certo");
+        }
+        else{
+            System.out.println("Id does not exist");
+        }      
+    }
+
+    public void ListByComplete() { 
+        System.out.println("List by complete or incomplete? [c/i]: ");
+        String ci = scanner.nextLine();
+
         for (Map.Entry<Integer, Task> entry : data.entrySet()) {
             Task task = entry.getValue();
-
-            if (task.getCompleted()) {
+            if ((ci.equals("c")) && (task.getCompleted())) {
                 System.out.println("----------------------------");
                 System.out.println("Id: " + entry.getKey());
                 System.out.println("Title: " + task.getTitle());
                 System.out.println("Description: " + task.getDescription());
                 System.out.println("Completed: "+ task.getCompleted());
-            } /* FAÇA COM QUE PERGUNTE SE QUER LISTAR PELAS COMPLETAS OU NÃO COMPLETAS */
-            else{
-                System.out.println("No tasks were completed");
+            } 
+            else if ((ci.equals("i")) && (!task.getCompleted())){
+                System.out.println("----------------------------");
+                System.out.println("Id: " + entry.getKey());
+                System.out.println("Title: " + task.getTitle());
+                System.out.println("Description: " + task.getDescription());
+                System.out.println("Completed: "+ task.getCompleted());
             }
         }
     }
+
     public void PriorityCondition(Task data){
         int priority = data.getPriority();
         if(priority == 1){

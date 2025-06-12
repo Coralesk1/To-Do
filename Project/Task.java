@@ -1,13 +1,9 @@
 package Project;
-import java.time.LocalDate;
-
 
 public class Task {
-    
 
     private String Title;
     private String Description;
-    private LocalDate dateLimit;
     private int Priority; 
     private Boolean Completed = false;
 
@@ -18,24 +14,31 @@ public class Task {
         this.Priority = Priority;
         this.Completed = Completed;
     }
+
     public String getTitle() {
         return Title; 
     }
+
     public String getDescription() {
         return Description;
     }
+
     public int getPriority() {
         return Priority;
     }
+
     public boolean getCompleted() {
         return Completed;
     }
+
     public void setCompleted(boolean completed) {
         this.Completed = completed;
     }
+    
     public void setUnmark(boolean completed){
         this.Completed = completed;
     }
+
     
    
 
